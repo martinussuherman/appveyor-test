@@ -9,4 +9,5 @@ test_script:
   - free -m
   - mkdir /dev/shm/mysql
   - ls -al /dev/shm
-  - sudo service mysql restart
+  - mysql --verbose --help
+  - mysql --print-defaults
