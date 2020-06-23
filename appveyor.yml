@@ -2,12 +2,9 @@ image: Ubuntu
 
 init:
   - sudo sed -i 's!/var/lib/mysql!/dev/shm/mysql!' /etc/mysql/mysql.conf.d/mysqld.cnf
-  - sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf
   - sudo sed -i 's!/var/lib/mysql!/dev/shm/mysql!' /etc/apparmor.d/usr.sbin.mysqld
-  - sudo cat /etc/apparmor.d/usr.sbin.mysqld
   - sudo apparmor_parser -r /etc/apparmor.d/usr.sbin.mysqld
   - sudo cp -rp /var/lib/mysql /dev/shm
-  - sudo ls -al /dev/shm/mysql
   - sudo mv /var/lib/mysql /var/lib/mysql.local
 
 before_build:
@@ -19,6 +16,5 @@ test_script:
   - id
   - df -h
   - free -m
-  - ls -al /dev/shm/mysql
   - mysql -uroot -pPassword12! -e 'SHOW VARIABLES WHERE Variable_Name LIKE "%dir"'
   
