@@ -1,10 +1,12 @@
 image: Ubuntu
 before_build:
 services:
-  - docker
+  - mysql
 test_script:
   - id
   - df -h
   - lscpu
   - free -m
+  - mkdir /dev/shm/mysql
   - ls -al /dev/shm
+  - sudo service mysql restart
