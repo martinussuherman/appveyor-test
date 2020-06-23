@@ -5,9 +5,8 @@ services:
 test_script:
   - id
   - df -h
-  - lscpu
   - free -m
   - mkdir /dev/shm/mysql
   - ls -al /dev/shm
-  - mysql --verbose --help
-  - mysql --print-defaults
+  - mysql -uroot -pPassword12! -e 'SHOW VARIABLES WHERE Variable_Name LIKE "%dir"'
+  
