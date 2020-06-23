@@ -2,6 +2,7 @@ image: Ubuntu
 
 init:
   - sudo cp -r /var/lib/mysql /dev/shm
+  - sudo chown -R mysql:mysql /dev/shm/mysql
   - sudo ls -al /dev/shm/mysql
   - sudo mv /var/lib/mysql /var/lib/mysql.local
   - sudo ln -s /dev/shm/mysql /var/lib/mysql
