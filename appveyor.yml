@@ -1,7 +1,6 @@
 image: Ubuntu
 
 init:
-  - sudo service mysql status
   - mkdir /dev/shm/mysql
   - sudo cp -r /var/lib/mysql/* /dev/shm/mysql
   - sudo chown -R mysql:mysql /dev/shm/mysql
