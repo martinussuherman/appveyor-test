@@ -1,8 +1,12 @@
 image: Ubuntu
 
 init:
+  - sudo service mysql status
   - mkdir /dev/shm/mysql
-  - sudo ls -al /var/lib/mysql
+  - sudo cp -r /var/lib/mysql/* /dev/shm/mysql
+  - sudo chown -R mysql:mysql /dev/shm/mysql
+  - sudo ls -al /dev/shm/mysql
+  - sudo mv /var/lib/mysql /var/lib/mysql.local
   - sudo ln -s /dev/shm/mysql /var/lib/mysql
 
 before_build:
