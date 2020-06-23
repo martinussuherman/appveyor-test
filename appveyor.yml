@@ -2,6 +2,7 @@ image: Ubuntu
 
 init:
   - sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf
+  - sudo cat /etc/apparmor.d/usr.sbin.mysqld
   - sudo cp -r /var/lib/mysql /dev/shm
   - sudo chown -R mysql:mysql /dev/shm/mysql
   - sudo ls -al /dev/shm/mysql
