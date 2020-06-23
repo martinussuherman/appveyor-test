@@ -1,7 +1,6 @@
 image: Ubuntu
 
 init:
-  - sudo cat /etc/my.cnf
   - sudo cat /etc/mysql/my.cnf
   - sudo cp -r /var/lib/mysql /dev/shm
   - sudo chown -R mysql:mysql /dev/shm/mysql
