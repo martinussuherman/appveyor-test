@@ -2,6 +2,8 @@ image: Ubuntu
 
 init:
   - sudo cat /etc/mysql/my.cnf
+  - sudo ls -al /etc/mysql/conf.d/
+  - sudo ls -al /etc/mysql/mysql.conf.d/
   - sudo cp -r /var/lib/mysql /dev/shm
   - sudo chown -R mysql:mysql /dev/shm/mysql
   - sudo ls -al /dev/shm/mysql
@@ -13,6 +15,7 @@ before_build:
 
 services:
   - mysql
+
 test_script:
   - id
   - df -h
