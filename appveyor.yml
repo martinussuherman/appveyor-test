@@ -1,9 +1,9 @@
 image: Ubuntu
 before_build:
-  - cmd: id
-  - cmd: df -h
-  - cmd: lscpu
 services:
   - docker
 test_script:
   - docker run hello-world
+  - id
+  - df -h
+  - lscpu
