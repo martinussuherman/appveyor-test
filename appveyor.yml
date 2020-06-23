@@ -2,9 +2,9 @@ image: Ubuntu
 
 init:
   - sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf
+  - sudo sed -i 's/var/lib/mysql /dev/shm/mysql/g'  /etc/apparmor.d/usr.sbin.mysqld
   - sudo cat /etc/apparmor.d/usr.sbin.mysqld
-  - sudo cp -r /var/lib/mysql /dev/shm
-  - sudo chown -R mysql:mysql /dev/shm/mysql
+  - sudo cp -rp /var/lib/mysql /dev/shm
   - sudo ls -al /dev/shm/mysql
   - sudo mv /var/lib/mysql /var/lib/mysql.local
   - sudo ln -s /dev/shm/mysql /var/lib/mysql
