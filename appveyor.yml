@@ -1,6 +1,6 @@
 image: Ubuntu
 
-install:
+init:
   - mkdir /dev/shm/mysql
   - sudo ls -al /var/lib/mysql
   - sudo ln -s /dev/shm/mysql /var/lib/mysql
