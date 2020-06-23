@@ -2,7 +2,9 @@ image: Ubuntu
 
 install:
   - mkdir /dev/shm/mysql
-  - ln -s /dev/shm/mysql /var/lib/mysql
+  - ls -al /var/lib/mysql
+  - sudo ln -s /dev/shm/mysql /var/lib/mysql
+
 before_build:
 
 services:
