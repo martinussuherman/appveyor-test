@@ -1,12 +1,16 @@
 image: Ubuntu
+
+install:
+  - mkdir /dev/shm/mysql
+  - ln -s /dev/shm/mysql /var/lib/mysql
 before_build:
+
 services:
   - mysql
 test_script:
   - id
   - df -h
   - free -m
-  - mkdir /dev/shm/mysql
-  - ls -al /dev/shm
+  - ls -al /dev/shm/mysql
   - mysql -uroot -pPassword12! -e 'SHOW VARIABLES WHERE Variable_Name LIKE "%dir"'
   
