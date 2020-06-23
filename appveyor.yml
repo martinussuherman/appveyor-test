@@ -3,6 +3,7 @@ before_build:
   - cmd: id
   - cmd: df -h
   - cmd: lscpu
-build:
-  verbosity: minimal
-version: '1.0.{build}'
+services:
+  - docker
+test_script:
+  - docker run hello-world
